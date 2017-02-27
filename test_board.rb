@@ -22,4 +22,11 @@ class TestBoard < Minitest::Test
 	
 	end
 
+	def test_update_partial_board_at_last_position
+		board = Board.new
+		board.ttt_board = ['X', 'O', '', 'X', '', 'O', '', 'X', '']
+		board.update_position(8, 'X')
+		assert_equal(['X', 'O', '', 'X', '', 'O', '', 'X', 'X'], board.ttt_board)
+	end
+
 end
