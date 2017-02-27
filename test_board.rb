@@ -38,4 +38,27 @@ class TestBoard < Minitest::Test
 		assert_equal(true, board.valid_position?(4))
 	end
 
+	def test_board_full_false
+		board = Board.new
+		board.ttt_board = ['X', 'O', 'O', 'X', '', 'O', 'O', 'X', 'X']
+		assert_equal(false, board.full_board?)	
+	end
+
+	def test_board_full_true
+		board = Board.new
+		board.ttt_board = ['X', 'O', 'O', 'X', 'X', 'O', 'O', 'X', 'X']
+		assert_equal(true, board.full_board?)	
+	end
+
+	def test_valid_input
+		board = Board.new
+		assert_equal(false, board.valid_input?('m'))
+		assert_equal(true, board.valid_input?('X'))
+		assert_equal(true, board.valid_input?('x'))
+		assert_equal(true, board.valid_input?('O'))
+		assert_equal(true, board.valid_input?('o'))
+		assert_equal(false, board.valid_input?(''))
+		assert_equal(false, board.valid_input?('*'))
+	end
+
 end

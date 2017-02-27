@@ -20,4 +20,22 @@ class Board
 		
 	end
 
+	def valid_input?(input)
+		
+		if input.match(/[xXoO]/)
+			true
+		else
+			false
+		end
+		
+	end
+
+	def full_board?
+		if ttt_board.include?('')
+			false
+		else
+			true
+		end
+	end
+
 end
