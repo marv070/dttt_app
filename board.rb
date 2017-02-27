@@ -10,4 +10,14 @@ class Board
 		ttt_board[position] = marker
 	end
 
+	def valid_position?(position)
+
+		if ttt_board[position] == ''
+			true
+		else
+			false
+		end
+		
+	end
+
 end

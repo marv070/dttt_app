@@ -29,4 +29,13 @@ class TestBoard < Minitest::Test
 		assert_equal(['X', 'O', '', 'X', '', 'O', '', 'X', 'X'], board.ttt_board)
 	end
 
+	def test_check_if_position_is_open
+		board = Board.new
+		board.ttt_board = ['X', 'O', '', 'X', '', 'O', '', 'X', '']
+		assert_equal(true, board.valid_position?(2))
+		assert_equal(false, board.valid_position?(1))
+		assert_equal(false, board.valid_position?(15))
+		assert_equal(true, board.valid_position?(4))
+	end
+
 end
