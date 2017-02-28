@@ -38,4 +38,24 @@ class Board
 		end
 	end
 
+	def winner?(marker)
+		#placeholder function to check first 3 positions
+		index_pos = 0
+		count = 0
+
+		3.times do
+			if ttt_board[index_pos] == marker
+				count += 1
+			end
+			index_pos += 1	
+		end
+
+		if count == 3
+			true
+		else
+			false
+		end
+		
+	end
+
 end

@@ -61,4 +61,17 @@ class TestBoard < Minitest::Test
 		assert_equal(false, board.valid_input?('*'))
 	end
 
+	def test_for_winner_at_012
+		board = Board.new
+		marker = 'X'
+		board.ttt_board = ['X', 'X', 'X', 'O', 'X', 'O', 'O', 'X', 'X']
+		assert_equal(true, board.winner?(marker))	
+	end
+
+	
+
 end
+
+
+# Winning positions
+# [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
