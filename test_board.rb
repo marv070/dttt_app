@@ -105,5 +105,19 @@ class TestBoard < Minitest::Test
 		assert_equal(true, board.winner?(marker))	
 	end
 
+	def test_for_no_winner_empties
+		board = Board.new
+		marker = 'X'
+		board.ttt_board = ['X', 'X', '', 'X', '', 'O', '', '', 'O']
+		assert_equal(false, board.winner?(marker))	
+	end
+
+	def test_for_no_winner_full_board
+		board = Board.new
+		marker = 'X'
+		board.ttt_board = ['O', 'X', 'X', 'X', 'X', 'O', 'O', 'O', 'X']
+		assert_equal(false, board.winner?(marker))	
+	end
+
 
 end

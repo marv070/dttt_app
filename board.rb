@@ -39,6 +39,8 @@ class Board
 	end
 
 	def winner?(marker)
+
+		#2D array of winning combos
 		winners = [
 			[0, 1, 2],
 			[3, 4, 5],
@@ -50,8 +52,17 @@ class Board
 			[2, 4, 6]
 		]
 
+		#Set results to false by default.
 		results = false
 
+		#Nested loops.  Iterates over 'outer' array
+		#Then iterates over each inner_array.
+		#Uses the value from each number in the inner array as
+		#an index position in ttt_board.
+		#If there is a match, it adds to count. If count reaches
+		#three, results get set to true because all 3 in a set matched.
+		#Count is reset to 0 for every new inner array item
+		#because it is outside the inner loop.
 		winners.each do |inner_array|
 			count = 0
 
@@ -69,10 +80,11 @@ class Board
 				end
 			end
 		end
-
+		#Calls our results which is false by default.
+		#Only true if a set of the three combos matches.
 		results
 
 	end
 
-	
+
 end
