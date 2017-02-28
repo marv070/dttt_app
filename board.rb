@@ -53,7 +53,6 @@ class Board
 		results = false
 
 		winners.each do |inner_array|
-
 			count = 0
 
 			inner_array.each do |value|
@@ -67,13 +66,13 @@ class Board
 						results = true
 
 					end
-
 				end
-
 			end
-
 		end
+
 		results
+
 	end
 
+	
 end

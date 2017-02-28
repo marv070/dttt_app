@@ -61,6 +61,8 @@ class TestBoard < Minitest::Test
 		assert_equal(false, board.valid_input?('*'))
 	end
 
+# WINNING COMBO TESTS
+
 	def test_for_winner_at_012_X
 		board = Board.new
 		marker = 'X'
@@ -75,11 +77,33 @@ class TestBoard < Minitest::Test
 		assert_equal(true, board.winner?(marker))	
 	end
 
-	def test_for_LOOOOOOSER_at_012
+	def test_for_no_winner
 		board = Board.new
 		marker = 'X'
 		board.ttt_board = ['X', 'O', 'X', 'O', 'X', 'O', 'O', 'X', 'O']
 		assert_equal(false, board.winner?(marker))	
 	end
+
+	def test_for_winner_at_345_O
+		board = Board.new
+		marker = 'O'
+		board.ttt_board = ['X', 'O', 'X', 'O', 'O', 'O', 'O', 'X', 'X']
+		assert_equal(true, board.winner?(marker))	
+	end
+
+	def test_for_winner_at_678_X
+		board = Board.new
+		marker = 'X'
+		board.ttt_board = ['X', 'O', 'O', 'O', '', 'O', 'X', 'X', 'X']
+		assert_equal(true, board.winner?(marker))	
+	end
+
+	def test_for_winner_at_036_X_with_empties
+		board = Board.new
+		marker = 'X'
+		board.ttt_board = ['X', 'O', 'O', 'X', '', 'O', 'X', '', '']
+		assert_equal(true, board.winner?(marker))	
+	end
+
 
 end
