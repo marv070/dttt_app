@@ -89,6 +89,11 @@ class Board
 
 end
 
+
+#new player class
+#gets.chomp gets input from the user and assigns it to
+#name and marker.  Need to add restrictions later
+#so player has to choose x or o.
 class Player
 
 	attr_accessor :name, :marker
