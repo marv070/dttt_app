@@ -121,3 +121,12 @@ class TestBoard < Minitest::Test
 
 
 end
+
+class TestPlayer < Minitest::Test
+
+	def test_get_player_name
+		player = Player.new
+		assert_equal('Dan', player.name)
+	end
+
+end
