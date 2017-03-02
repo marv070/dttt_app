@@ -6,7 +6,7 @@ require_relative 'random.rb'
 
 class ConsoleGame
 
-	attr_accessor :player_1, :player_2, :board
+	attr_accessor :player_1, :player_2, :board, :active_player
 
 
 	# Need to add way to keep track of active player
@@ -17,14 +17,53 @@ class ConsoleGame
 		@player_1 = player_1
 		@player_2 = player_2	
 		@board = Board.new	
+		@active_player = player_1
 	end
 
-	def display_board(board)
+	def intro
+		puts 'Welcome to tic-tac-toe'
+	end
+
+	def display_board
 	  puts " #{board.ttt_board[0]} | #{board.ttt_board[1]} | #{board.ttt_board[2]} "
-	  puts "-----------"
+	  puts "--------"
 	  puts " #{board.ttt_board[3]} | #{board.ttt_board[4]} | #{board.ttt_board[5]} "
-	  puts "-----------"
+	  puts "--------"
 	  puts " #{board.ttt_board[6]} | #{board.ttt_board[7]} | #{board.ttt_board[8]} "
+	end
+
+	def get_move
+		active_player.get_move(board.ttt_board)	
+	end
+
+	def update_board
+		move = get_move
+		marker = active_player.marker
+		board.update_position(move, marker)
+	end
+
+	def change_player
+		if active_player == player_1
+			@active_player = player_2
+		else
+			@active_player = player_1
+		end	
+	end
+
+	def check_winner
+		if board.winner?(board)
+			true
+		else
+			false
+		end	
+	end
+
+	def check_tie
+		if board.full_board?(board)
+			true
+		else
+			false
+		end
 	end
 
 
