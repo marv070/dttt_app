@@ -4,7 +4,7 @@ require_relative 'sequential.rb'
 require_relative 'random.rb'
 
 
-class Game
+class ConsoleGame
 
 	attr_accessor :player_1, :player_2, :board
 
