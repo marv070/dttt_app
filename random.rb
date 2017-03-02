@@ -8,7 +8,7 @@ class Random
 		valid_pos = []
 
 		board_state.each_with_index do |val, pos|
-			if val = ''
+			if val == ''
 				valid_pos.push(pos)
 			end
 		end
