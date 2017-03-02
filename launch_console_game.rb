@@ -5,7 +5,7 @@ require_relative 'console_game.rb'
 #User input will go here to determine player 1 and 2
 
 player_1 = Sequential.new('X')
-player_2 = Player.new('O')
+player_2 = Human.new('O')
 
 # Initializes a new game with player 1 and 2 selected.
 game = ConsoleGame.new(player_1, player_2)
