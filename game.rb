@@ -6,11 +6,12 @@ require_relative 'random.rb'
 
 class Game
 
-	attr_accessor :player_1, :player_2
+	attr_accessor :player_1, :player_2, :board
 
-	def initialize(player_1, player_2)
+	def initialize(player_1, player_2, board)
 		@player_1 = player_1
-		@player_2 = player_2		
+		@player_2 = player_2	
+		@board = board	
 	end
 
 	def display_board(board)
