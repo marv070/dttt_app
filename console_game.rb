@@ -50,21 +50,4 @@ class ConsoleGame
 		end	
 	end
 
-	def check_winner
-		if board.winner?(board)
-			true
-		else
-			false
-		end	
-	end
-
-	def check_tie
-		if board.full_board?(board)
-			true
-		else
-			false
-		end
-	end
-
-
 end

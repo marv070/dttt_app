@@ -11,6 +11,8 @@ player_2 = Random.new('O')
 game = ConsoleGame.new(player_1, player_2)
 
 game.intro
+
+until game.board.winner? || game.board.full_board?
 game.display_board
 game.get_move
 game.update_board
@@ -18,6 +20,7 @@ game.change_player
 game.get_move
 game.update_board
 game.display_board
+end
 
 
 
