@@ -18,4 +18,19 @@ class TestSequentialAI < Minitest::Test
 		assert_equal(2, ai.ai_choice(['X', 'X', '', '', '', '', '', '', '']))
 	end
 
+	def test_ai_picks_fourth_pos
+		ai = Sequential.new('O')
+		assert_equal(3, ai.ai_choice(['X', 'X', 'O', '', '', '', '', '', '']))
+	end
+
+	def test_ai_picks_fifth_pos
+		ai = Sequential.new('O')
+		assert_equal(4, ai.ai_choice(['X', 'X', 'd', 'f', '', '', '', '', '']))
+	end
+
+	def test_ai_picks_sixth_pos
+		ai = Sequential.new('O')
+		assert_equal(5, ai.ai_choice(['X', 'X', '4', 'f', 'd', '', '', '', '']))
+	end
+
 end
