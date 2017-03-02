@@ -30,6 +30,7 @@ class ConsoleGame
 	  puts " #{board.ttt_board[3]} | #{board.ttt_board[4]} | #{board.ttt_board[5]} "
 	  puts "--------"
 	  puts " #{board.ttt_board[6]} | #{board.ttt_board[7]} | #{board.ttt_board[8]} "
+	  puts "             "
 	end
 
 	def get_move
@@ -50,4 +51,11 @@ class ConsoleGame
 		end	
 	end
 
+	def check_winner
+		if board.winner?(active_player.marker)
+			true
+		else
+			false
+		end	
+	end
 end

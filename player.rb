@@ -6,9 +6,10 @@ class Player
 		@marker = marker
 	end
 
-	def get_move
+	def get_move(move)
 		print 'Enter 0-8 to choose your square: '
-		@move = gets.chomp.to_i
+		move = gets.chomp.to_i
+		@move = move
 	end
 		
 end
