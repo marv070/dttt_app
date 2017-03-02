@@ -58,4 +58,5 @@ class ConsoleGame
 			false
 		end	
 	end
+
 end

@@ -1,10 +1,11 @@
 require 'minitest/autorun'
 require_relative 'launch_console_game.rb'
 
-class TestLaunchConsoleGame < Minitest::Test
+class TestConsoleGame < Minitest::Test
 
-	def test_player_input_returns_human_vs_human
-		assert_equal(Human, get_players(1))	
+	def test_human_input
+		input = get_players
+		assert_equal(1, input)
 	end
 
 end
