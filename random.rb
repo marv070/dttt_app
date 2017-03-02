@@ -4,6 +4,10 @@ class Random
 		@marker = marker
 	end
 
+
+	# Checks if value is and empty string
+	# If true, pushes the index position into valid_pos
+	# Samples valid_pos to return random valid index position
 	def ai_choice(board_state)
 		valid_pos = []
 
