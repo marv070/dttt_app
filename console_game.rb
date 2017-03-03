@@ -38,9 +38,13 @@ class ConsoleGame
 	end
 
 	def update_board
-		# move = get_move
 		marker = active_player.marker
-		board.update_position(@move, marker)
+		if board.valid_position?(@move)
+			board.update_position(@move, marker)
+		else
+			puts "Invalid move, please choose again"
+			get_move
+		end
 	end
 
 	def change_player
