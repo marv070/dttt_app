@@ -6,7 +6,7 @@ require_relative 'random.rb'
 
 class ConsoleGame
 
-	attr_accessor :player_1, :player_2, :board, :active_player
+	attr_accessor :player_1, :player_2, :board, :active_player, :move
 
 
 	# Need to add way to keep track of active player
@@ -34,13 +34,13 @@ class ConsoleGame
 	end
 
 	def get_move
-		active_player.get_move(board.ttt_board)	
+		@move = active_player.get_move(board.ttt_board)	
 	end
 
 	def update_board
-		move = get_move
+		# move = get_move
 		marker = active_player.marker
-		board.update_position(move, marker)
+		board.update_position(@move, marker)
 	end
 
 	def change_player
