@@ -3,7 +3,7 @@ class Board
 	attr_accessor :ttt_board
 
 	def initialize
-		@ttt_board = Array.new(9, '')
+		@ttt_board = Array.new(9, ' ')
 	end
 
 	def update_position(position, marker)
@@ -12,7 +12,7 @@ class Board
 
 	def valid_position?(position)
 
-		if ttt_board[position] == ''
+		if ttt_board[position] == ' '
 			true
 		else
 			false
@@ -31,7 +31,7 @@ class Board
 	end
 
 	def full_board?
-		if ttt_board.include?('')
+		if ttt_board.include?(' ')
 			false
 		else
 			true

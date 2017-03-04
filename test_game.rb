@@ -15,7 +15,7 @@ class TestConsoleGame < Minitest::Test
 		player_1 = Sequential.new('X')
 		player_2 = Random.new('O')
 		game = ConsoleGame.new
-		assert_equal(['', '', '', '', '', '', '', '', ''], game.board.ttt_board)
+		assert_equal([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], game.board.ttt_board)
 	end
 
 end

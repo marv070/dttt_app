@@ -11,7 +11,7 @@ class Sequential
 	#Uses index method to find the first element that is an empty string
 	#Returns the index position we can use later to update the board.
 	def get_move(board_state)
-		board_state.index('')
+		board_state.index(' ')
 	end
 
 end
