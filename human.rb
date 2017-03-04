@@ -12,7 +12,7 @@ class Human
 		puts "-----------"
 		puts " 4 | 5 | 6 "
 		puts "-----------"
-		puts " 7 | 8 | 9 \n"
+		puts " 7 | 8 | 9 "
 
 		move = gets.chomp.to_i - 1
 	end
