@@ -8,11 +8,9 @@ class ConsoleGame
 
 	attr_accessor :player_1, :player_2, :board, :active_player, :move, :input1, :input2
 
-	def initialize  #(player_1, player_2)
+	def initialize
 		@player_1 = get_player1
 		@player_2 = get_player2
-		# @player_1 = player_1
-		# @player_2 = player_2	
 		@board = Board.new	
 		@active_player = player_1
 	end
@@ -23,9 +21,9 @@ class ConsoleGame
 
 	def display_board
 	  puts " #{board.ttt_board[0]} | #{board.ttt_board[1]} | #{board.ttt_board[2]} "
-	  puts "--------"
+	  puts "-----------"
 	  puts " #{board.ttt_board[3]} | #{board.ttt_board[4]} | #{board.ttt_board[5]} "
-	  puts "--------"
+	  puts "-----------"
 	  puts " #{board.ttt_board[6]} | #{board.ttt_board[7]} | #{board.ttt_board[8]} "
 	  puts "             "
 	end

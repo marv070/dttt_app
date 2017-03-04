@@ -2,17 +2,7 @@
 
 require_relative 'console_game.rb'
 
-# player_1 = Sequential.new('X')
-# player_2 = Random.new('O')
-
-# $player_1 = ''
-# $player_2 = ''
-
-
-# get_player1
-# get_player2
-
-game = ConsoleGame.new   #(player_1, player_2)
+game = ConsoleGame.new
 
 game.intro
 

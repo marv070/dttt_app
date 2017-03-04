@@ -1,5 +1,3 @@
-require_relative 'console_game.rb'
-
 class Human
 
 	attr_accessor :marker
@@ -9,8 +7,14 @@ class Human
 	end
 
 	def get_move(board_state)
-		print 'Enter 0-8 to choose your square: '
-		move = gets.chomp.to_i
+		puts 'Enter 1-9 to choose your square: '
+		puts " 1 | 2 | 3 "
+		puts "-----------"
+		puts " 4 | 5 | 6 "
+		puts "-----------"
+		puts " 7 | 8 | 9 \n"
+
+		move = gets.chomp.to_i - 1
 	end
 		
 end
