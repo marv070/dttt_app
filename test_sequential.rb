@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'sequential.rb'
+require_relative 'player_classes.rb'
 
 class TestSequentialAI < Minitest::Test
 
