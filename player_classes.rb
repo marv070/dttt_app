@@ -1,3 +1,8 @@
+# Using superclass inheritance here to reduce repetitive lines of code
+# Rather that initializing marker in every class we do it only in player class
+# Then make our new classes children of the player class so they inherit this function
+
+
 class Player
 
 	attr_accessor :marker
