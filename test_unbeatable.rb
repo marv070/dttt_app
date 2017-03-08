@@ -70,6 +70,11 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(1, newAI.get_move(['X', ' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ']))	
 	end
 
+	# FORK TESTS
 
+	def test_X_takes_fork
+		newAI = UnbeatableAI.new('X')
+		assert_equal(true, [4, 8].include?(newAI.check_for_fork(['X', 'O', ' ', 'O', ' ', ' ', 'X', ' ', ' '])))	
+	end
 
 end
