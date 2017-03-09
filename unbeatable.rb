@@ -70,7 +70,7 @@ class UnbeatableAI
 							[ttt_board[2],ttt_board[4],ttt_board[6]]
 							]
 
-		fork_positions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+		fork_positions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[4,1,7],[2,5,8],[0,4,8],[2,4,6]]
 
 		fork_line = []
 		fork_spot = []
@@ -84,24 +84,30 @@ class UnbeatableAI
 		end
 
 		i.each do |index|
-			fork_spot.push(fork_positions[index])
+			fork_spot << fork_positions[index]
 		end
-
+		
 		fork_spot = fork_spot.flatten.sort
 
-		conditional_array = []
+		intersections = []
 		fork_spot.each do |spot|
 			if ttt_board[spot] == " "
-				conditional_array.push(spot)
+				intersections.push(spot)
 			end
 		end
 
-		if conditional_array.detect { |match| conditional_array.count(match) > 1 } == nil
+		if intersections.detect { |match| intersections.count(match) > 1 } == nil
+
 			move = 10
+		
 		else
-			move = conditional_array.detect { |match| conditional_array.count(match) > 1 }
+				
+			move = intersections.detect { |match| intersections.count(match) > 1 }
+		
 		end
+				
 		move
+		
 	end
 
 end
