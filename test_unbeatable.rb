@@ -99,4 +99,19 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(4, newAI.block_fork(['O', 'X', ' ', 'X', ' ', ' ', 'O', ' ', ' ']))
 	end
 
+	def test_O_fork_blocks_zero
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.block_fork([" ", "X", " ", " ", "X", "O", " ", "O", " "]))
+	end
+
+	def test_O_fork_block_six
+		newAI = UnbeatableAI.new("O")
+		assert_equal(6, newAI.block_fork([" ", "O", " ", " ", "X", "O", " ", "X", " "]))
+	end
+
+	def test_O_fork_block_two
+		newAI = UnbeatableAI.new("O")
+		assert_equal(2, newAI.block_fork(["O", " ", " ", " ", " ", " ", "X", "O", "X"]))
+	end
+
 end
