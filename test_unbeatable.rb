@@ -92,4 +92,11 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(2, newAI.check_for_fork(["X", " ", " ", " ", " ", " ", "O", "X", "O"]))
 	end
 
+	#BLOCK FORK TESTS
+
+	def test_X_blocks_fork
+		newAI = UnbeatableAI.new('X')
+		assert_equal(4, newAI.block_fork(['O', 'X', ' ', 'X', ' ', ' ', 'O', ' ', ' ']))
+	end
+
 end

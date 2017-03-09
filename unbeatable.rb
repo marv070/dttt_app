@@ -110,4 +110,8 @@ class UnbeatableAI
 		
 	end
 
+	def block_fork(ttt_board)
+		
+	end
+
 end
