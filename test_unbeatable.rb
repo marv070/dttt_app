@@ -114,6 +114,8 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(2, newAI.block_fork(["O", " ", " ", " ", " ", " ", "X", "O", "X"]))
 	end
 
+
+	#This should fail, need to take 5 to force X to defend
 	def test_O_blocks_X_corners
 		newAI = UnbeatableAI.new("O")
 		assert_equal(0, newAI.block_fork([" ", " ", "X", " ", "O", " ", "X", " ", " "]))
