@@ -142,9 +142,11 @@ class UnbeatableAI
 			end
 		end
 
-		#Super repetitive need to refactor later
-		#Should find player marker and return the empty spot beside it
-		#I think my logic in approaching this is slightly off
+		# Super repetitive need to refactor later
+		# This can be simplified, the only time 2 forks need to be forced on defense
+		# is when the opponent has opposite corners and player has the center
+		# Need to refactor to take position 3 or 5 when opponent has opposite corners
+		# Block fork as normal otherwise
 		#----------------------------------------------------------------------------
 		fork_combinations.each_with_index do |forking_line, index|
 			if forking_line.count(marker) == 1 && forking_line.count(" ") == 2
@@ -156,17 +158,17 @@ class UnbeatableAI
 			player_spot << fork_positions[index]
 		end
 
-		player_spot = player_spot.flatten
+		#player_spot = player_spot.flatten
 
-		player_move = 10
+		# player_move = 10
 
-		player_spot.each do |val|
-			if ttt_board[val] == marker && ttt_board[val + 1] == " "
-				player_move = val
-			else
-				player_move
-			end
-		end
+		# player_spot.each do |val|
+		# 	if ttt_board[val] == marker && ttt_board[val + 1] == " "
+		# 		player_move = val
+		# 	else
+		# 		player_move
+		# 	end
+		# end
 
 
 		#----------------------------------------------------------------------------
@@ -189,14 +191,14 @@ class UnbeatableAI
 
 		duplicates = []
 
-		intersections.detect do |value|
+		intersections.select do |value|
 			if intersections.count(value) > 1 
 
 			duplicates << value
 			end
 		end
 
-		num_of_forks = duplicates.length
+		num_of_forks = duplicates.uniq.length
 
 
 		#This should defend by making 2 in a row if the opponent can create multiple forks
@@ -211,7 +213,7 @@ class UnbeatableAI
 		else num_of_forks == 0
 			move = 10
 		end
-				
+	
 		move
 		
 	end
