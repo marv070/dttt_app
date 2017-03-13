@@ -133,48 +133,12 @@ class UnbeatableAI
 
 		fork_spot = []
 		i = []
-		player_index = []
-		player_spot = []
 		
 		fork_combinations.each_with_index do |forking_line, index|
 			if forking_line.count(opponent) == 1 && forking_line.count(" ") == 2
 				i.push(index)
 			end
 		end
-
-		# Super repetitive need to refactor later
-		# This can be simplified, the only time 2 forks need to be forced on defense
-		# is when the opponent has opposite corners and player has the center
-		# Need to refactor to take position 3 or 5 when opponent has opposite corners
-		# Block fork as normal otherwise
-		#----------------------------------------------------------------------------
-		fork_combinations.each_with_index do |forking_line, index|
-			if forking_line.count(marker) == 1 && forking_line.count(" ") == 2
-				player_index.push(index)
-			end
-		end
-
-		player_index.each do |index|
-			player_spot << fork_positions[index]
-		end
-
-		#player_spot = player_spot.flatten
-
-		# player_move = 10
-
-		# player_spot.each do |val|
-		# 	if ttt_board[val] == marker && ttt_board[val + 1] == " "
-		# 		player_move = val
-		# 	else
-		# 		player_move
-		# 	end
-		# end
-
-
-		#----------------------------------------------------------------------------
-
-
-
 
 		i.each do |index|
 			fork_spot << fork_positions[index]
@@ -189,33 +153,31 @@ class UnbeatableAI
 			end
 		end
 
-		duplicates = []
+		# Takes position 3 if the opponent sets up double corner fork on either side
+		# This assumes the center tile takes priority after block fork which I'm pretty sure
+		# should prevent the other double fork scenarios.
+		# Need to change this later to be more flexible.
 
-		intersections.select do |value|
-			if intersections.count(value) > 1 
+		if ttt_board == [" ", " ", opponent, " ", marker, " ", opponent, " ", " "]
 
-			duplicates << value
-			end
-		end
+			move = 3
 
-		num_of_forks = duplicates.uniq.length
+		elsif ttt_board == [opponent, " ", " ", " ", marker, " ", " ", " ", opponent]
 
+			move = 3
 
-		#This should defend by making 2 in a row if the opponent can create multiple forks
-		#Block the fork if there is only one opportunity
-		#Set move to 10 for later logic if there are no opponent fork opportunities
-		if num_of_forks > 1
-			move = player_move
+		elsif intersections.detect { |match| intersections.count(match) > 1 } == nil
 
-		elsif num_of_forks ==  1
-			move = duplicates[0]
-
-		else num_of_forks == 0
 			move = 10
-		end
-	
-		move
 		
+		else
+				
+			move = intersections.detect { |match| intersections.count(match) > 1 }
+		
+		end
+				
+		move
+
 	end
 
 end
