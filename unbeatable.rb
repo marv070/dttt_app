@@ -8,6 +8,12 @@ class UnbeatableAI
 
 	def get_move(ttt_board)
 
+		
+
+	end
+
+	def win_block(ttt_board)
+
 		opponent = 'X'
 
 		if marker == 'X'

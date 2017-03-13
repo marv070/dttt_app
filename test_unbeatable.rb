@@ -10,64 +10,64 @@ class TestUnbeatableAI < Minitest::Test
 
 	def test_go_for_win
 		newAI = UnbeatableAI.new('X')
-		assert_equal(2, newAI.get_move(['X', 'X', ' ', ' ', ' ', ' ', ' ', ' ', ' ']))
+		assert_equal(2, newAI.win_block(['X', 'X', ' ', ' ', ' ', ' ', ' ', ' ', ' ']))
 	end
 
 	def test_go_for_win_345
 		newAI = UnbeatableAI.new('X')
-		assert_equal(4, newAI.get_move([' ', ' ', ' ', 'X', ' ', 'X', ' ', ' ', ' ']))
+		assert_equal(4, newAI.win_block([' ', ' ', ' ', 'X', ' ', 'X', ' ', ' ', ' ']))
 	end
 
 	def test_go_for_win_678
 		newAI = UnbeatableAI.new('X')
-		assert_equal(8, newAI.get_move([' ', ' ', ' ', ' ', ' ', ' ', 'X', 'X', ' ']))
+		assert_equal(8, newAI.win_block([' ', ' ', ' ', ' ', ' ', ' ', 'X', 'X', ' ']))
 	end
 
 	def test_go_for_win_246
 		newAI = UnbeatableAI.new('X')
-		assert_equal(6, newAI.get_move([' ', ' ', 'X', ' ', 'X', ' ', ' ', ' ', ' ']))
+		assert_equal(6, newAI.win_block([' ', ' ', 'X', ' ', 'X', ' ', ' ', ' ', ' ']))
 	end
 
 	def test_go_for_win_246_O
 		newAI = UnbeatableAI.new('O')
-		assert_equal(6, newAI.get_move([' ', ' ', 'O', ' ', 'O', ' ', ' ', ' ', ' ']))
+		assert_equal(6, newAI.win_block([' ', ' ', 'O', ' ', 'O', ' ', ' ', ' ', ' ']))
 	end
 
 	def test_go_for_win_678_O
 		newAI = UnbeatableAI.new('O')
-		assert_equal(8, newAI.get_move([' ', ' ', ' ', ' ', ' ', ' ', 'O', 'O', ' ']))
+		assert_equal(8, newAI.win_block([' ', ' ', ' ', ' ', ' ', ' ', 'O', 'O', ' ']))
 	end
 
 	#BLOCK TESTS
 
 	def test_for_block_O_win
 		newAI = UnbeatableAI.new('X')
-		assert_equal(1, newAI.get_move(['O', ' ', 'O', 'X', ' ', ' ', ' ', ' ', ' ']))	
+		assert_equal(1, newAI.win_block(['O', ' ', 'O', 'X', ' ', ' ', ' ', ' ', ' ']))	
 	end
 
 	def test_for_block_O_win_345
 		newAI = UnbeatableAI.new('X')
-		assert_equal(4, newAI.get_move([' ', ' ', 'X', 'O', ' ', 'O', ' ', ' ', ' ']))	
+		assert_equal(4, newAI.win_block([' ', ' ', 'X', 'O', ' ', 'O', ' ', ' ', ' ']))	
 	end
 
 	def test_for_block_O_win_678
 		newAI = UnbeatableAI.new('X')
-		assert_equal(7, newAI.get_move([' ', ' ', 'X', ' ', ' ', ' ', 'O', ' ', 'O']))	
+		assert_equal(7, newAI.win_block([' ', ' ', 'X', ' ', ' ', ' ', 'O', ' ', 'O']))	
 	end
 
 	def test_for_block_X_win_678
 		newAI = UnbeatableAI.new('O')
-		assert_equal(7, newAI.get_move([' ', ' ', 'O', ' ', ' ', ' ', 'X', ' ', 'X']))	
+		assert_equal(7, newAI.win_block([' ', ' ', 'O', ' ', ' ', ' ', 'X', ' ', 'X']))	
 	end
 
 	def test_for_block_X_win_246
 		newAI = UnbeatableAI.new('O')
-		assert_equal(6, newAI.get_move(['X', ' ', 'X', ' ', 'X', 'O', ' ', 'X', 'O']))	
+		assert_equal(6, newAI.win_block(['X', ' ', 'X', ' ', 'X', 'O', ' ', 'X', 'O']))	
 	end
 
 	def test_no_block_no_win
 		newAI = UnbeatableAI.new('O')
-		assert_equal(1, newAI.get_move(['X', ' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ']))	
+		assert_equal(1, newAI.win_block(['X', ' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ']))	
 	end
 
 	# FORK TESTS
