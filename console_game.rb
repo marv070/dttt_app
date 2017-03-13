@@ -1,5 +1,6 @@
 require_relative 'board.rb'
 require_relative 'player_classes.rb'
+require_relative 'unbeatable.rb'
 
 
 class ConsoleGame
@@ -24,20 +25,23 @@ class ConsoleGame
 	  puts "-----------"
 	  puts " #{board.ttt_board[6]} | #{board.ttt_board[7]} | #{board.ttt_board[8]} "
 	  puts "             "
+
 	  puts "It's #{active_player.marker}'s turn"
+	
 	end
 
 	def get_move
-		@move = active_player.get_move(board.ttt_board)	
+		active_player.get_move(board.ttt_board)	
 	end
 
 	def update_board
 		marker = active_player.marker
-		if board.valid_position?(@move)
-			board.update_position(@move, marker)
+		move = get_move
+		if board.valid_position?(move)
+			board.update_position(move, marker)
 		else
 			puts "Invalid move, please choose again"
-			get_move
+			update_board
 		end
 	end
 
@@ -63,6 +67,7 @@ class ConsoleGame
 			1 - Human
 			2 - Easy Computer
 			3 - Medium Computer
+			4 - Impossible Computer
 			"""
 		@input1 = gets.chomp.to_i
 
@@ -75,8 +80,11 @@ class ConsoleGame
 		elsif input1 == 3
 			@player_1 = RandomAI.new('X')
 
+		elsif input1 == 4
+			@player_1 = UnbeatableAI.new('X')
+
 		else
-			puts "Invalid input, please input 1, 2, or 3"
+			puts "Invalid input, please input 1, 2, 3, or 4"
 			get_player1
 		end
 
@@ -88,6 +96,7 @@ class ConsoleGame
 			1 - Human
 			2 - Easy Computer
 			3 - Medium Computer
+			4 - Impossible Computer
 			"""
 		@input2 = gets.chomp.to_i
 
@@ -99,8 +108,11 @@ class ConsoleGame
 
 		elsif input2 == 3
 			@player_2 = RandomAI.new('O')
+
+		elsif input2 == 4
+			@player_2 = UnbeatableAI.new('O')
 		else
-			puts "Invalid input, please input 1, 2, or 3"
+			puts "Invalid input, please input 1, 2, 3, or 4."
 			get_player2
 		end
 	end

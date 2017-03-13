@@ -8,7 +8,7 @@ game.intro
 
 until game.check_winner || game.board.full_board?
 game.change_player
-game.get_move
+# game.get_move
 game.update_board
 game.display_board
 end
