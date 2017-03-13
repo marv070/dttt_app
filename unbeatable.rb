@@ -8,7 +8,31 @@ class UnbeatableAI
 
 	def get_move(ttt_board)
 
-		
+		move = 50
+
+		if win_block(ttt_board) <= 8
+			move = win_block(ttt_board)
+
+		elsif check_for_fork(ttt_board) <= 8
+			move = check_for_fork(ttt_board)
+
+		elsif block_fork(ttt_board) <= 8
+			move = block_fork(ttt_board)
+
+		elsif take_center(ttt_board) <= 8
+			move = take_center(ttt_board)
+
+		elsif opposite_corner(ttt_board) <= 8
+			move = opposite_corner(ttt_board)
+
+		elsif empty_corner(ttt_board) <= 8
+			move = empty_corner(ttt_board)
+
+		else empty_side(ttt_board)
+			move = empty_side(ttt_board)
+		end
+
+		move
 
 	end
 
@@ -45,22 +69,22 @@ class UnbeatableAI
 			[2, 4, 6]
 		]
 
-		move = ' '
-		results = ttt_board.index(' ')
+		move = 10
+		
 
 		win_combos.each_with_index do |val, pos|
 			if val.count(marker) == 2 && val.count(' ') == 1
-				move = val.index(' ')
-				results = winners[pos][move]
+				results = val.index(' ')
+				move = winners[pos][results]
 			elsif
 				val.count(opponent) == 2 && val.count(' ') == 1
-				move = val.index(' ')
-				results = winners[pos][move]
+				results = val.index(' ')
+				move = winners[pos][results]
 			else
-				results	
+				move
 			end
 		end
-		results
+		move
 	end
 
 	def check_for_fork(ttt_board)

@@ -67,7 +67,7 @@ class TestUnbeatableAI < Minitest::Test
 
 	def test_no_block_no_win
 		newAI = UnbeatableAI.new('O')
-		assert_equal(1, newAI.win_block(['X', ' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ']))	
+		assert_equal(10, newAI.win_block(['X', ' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ']))	
 	end
 
 	# FORK TESTS
@@ -265,6 +265,13 @@ class TestUnbeatableAI < Minitest::Test
 	def test_O_empty_board_top_side
 		newAI = UnbeatableAI.new("O")
 		assert_equal(1, newAI.empty_side([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
+	end
+
+	# TEST GET MOVE FINAL
+
+	def test_X_takes_center_empty
+		newAI = UnbeatableAI.new("X")
+		assert_equal(4, newAI.get_move([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
 	end
 
 end
