@@ -190,6 +190,33 @@ class UnbeatableAI
 
 	def opposite_corner(ttt_board)
 
+		# Re-using opponent too much, can probably initialize this.
+
+		opponent = 'X'
+
+		if marker == 'X'
+			opponent = 'O'
+		else
+			opponent = 'X'
+		end
+
+		# Simple but works, revisit if time allows.
+
+		if ttt_board[0] == opponent && ttt_board[8] == " "
+			move = 8
+
+		elsif ttt_board[2] == opponent && ttt_board[6] == " "
+			move = 6
+
+		elsif ttt_board[6] == opponent && ttt_board[2] == " "
+			move = 2
+
+		elsif ttt_board[8] == opponent && ttt_board[0] == " "
+			move = 0
+
+		else
+			move = 10
+		end
 
 	end
 

@@ -168,4 +168,49 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(8, newAI.opposite_corner(["O", " ", " ", " ", " ", " ", " ", " ", " "]))
 	end
 
+	def test_X_takes_6_when_O2
+		newAI = UnbeatableAI.new("X")
+		assert_equal(6, newAI.opposite_corner([" ", " ", "O", " ", " ", " ", " ", " ", " "]))
+	end
+
+	def test_X_takes_2_when_O6
+		newAI = UnbeatableAI.new("X")
+		assert_equal(2, newAI.opposite_corner([" ", " ", " ", " ", " ", " ", "O", " ", " "]))
+	end
+
+	def test_X_takes_0_when_O_0
+		newAI = UnbeatableAI.new("X")
+		assert_equal(0, newAI.opposite_corner([" ", " ", " ", " ", " ", " ", " ", " ", "O"]))
+	end
+
+	def test_O_takes_8_when_X1
+		newAI = UnbeatableAI.new("O")
+		assert_equal(8, newAI.opposite_corner(["X", " ", " ", " ", " ", " ", " ", " ", " "]))
+	end
+
+	def test_O_takes_6_when_X2
+		newAI = UnbeatableAI.new("O")
+		assert_equal(6, newAI.opposite_corner([" ", " ", "X", " ", " ", " ", " ", " ", " "]))
+	end
+
+	def test_O_takes_2_when_X6
+		newAI = UnbeatableAI.new("O")
+		assert_equal(2, newAI.opposite_corner([" ", " ", " ", " ", " ", " ", "X", " ", " "]))
+	end
+
+	def test_O_takes_0_when_X_0
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.opposite_corner([" ", " ", " ", " ", " ", " ", " ", " ", "X"]))
+	end
+
+	def test_O_fails_to_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(10, newAI.opposite_corner(["X", " ", "X", " ", " ", " ", "X", " ", "X"]))
+	end
+
+	def test_O_takes_8
+		newAI = UnbeatableAI.new("O")
+		assert_equal(8, newAI.opposite_corner(["X", "O", "O", " ", "X", "O", "O", " ", " "]))
+	end
+
 end
