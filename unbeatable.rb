@@ -188,4 +188,9 @@ class UnbeatableAI
 		end
 	end
 
+	def opposite_corner(ttt_board)
+
+
+	end
+
 end

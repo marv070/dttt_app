@@ -161,4 +161,11 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(4, newAI.take_center(["X", "X", " ", " ", " ", "O", "O", " ", " "]))
 	end
 
+	# OPPOSITE CORNER TESTS
+
+	def test_X_takes_8_when_O1
+		newAI = UnbeatableAI.new("X")
+		assert_equal(8, newAI.opposite_corner(["O", " ", " ", " ", " ", " ", " ", " ", " "]))
+	end
+
 end
