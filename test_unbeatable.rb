@@ -220,4 +220,24 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(0, newAI.empty_corner([" ", " ", "X", " ", "O", " ", "X", "O", "X"]))
 	end
 
+	def test_O_takes_second_empty_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(2, newAI.empty_corner(["O", " ", " ", " ", "O", " ", "X", "O", "X"]))
+	end
+
+	def test_O_takes_6_empty_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(6, newAI.empty_corner(["O", " ", "X", " ", "O", " ", " ", "O", "X"]))
+	end
+
+	def test_O_takes_8_empty_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(8, newAI.empty_corner(["O", " ", "X", " ", "O", " ", "X", "O", " "]))
+	end
+
+	def test_O_empty_board_first_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.empty_corner([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
+	end
+
 end
