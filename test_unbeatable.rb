@@ -141,4 +141,24 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(4, newAI.take_center([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
 	end
 
+	def test_O_takes_center
+		newAI = UnbeatableAI.new("O")
+		assert_equal(4, newAI.take_center([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
+	end
+
+	def test_X_takes_center_fail
+		newAI = UnbeatableAI.new("X")
+		assert_equal(10, newAI.take_center([" ", " ", " ", " ", "O", " ", " ", " ", " "]))
+	end
+
+	def test_O_takes_center_fail
+		newAI = UnbeatableAI.new("O")
+		assert_equal(10, newAI.take_center([" ", " ", " ", " ", "X", " ", " ", " ", " "]))
+	end
+
+	def test_X_takes_center_various_fills
+		newAI = UnbeatableAI.new("X")
+		assert_equal(4, newAI.take_center(["X", "X", " ", " ", " ", "O", "O", " ", " "]))
+	end
+
 end
