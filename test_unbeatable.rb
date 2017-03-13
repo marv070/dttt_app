@@ -134,4 +134,11 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(3, newAI.block_fork(["O", " ", " ", " ", "X", " ", " ", " ", "O"]))
 	end
 
+	# CENTER TESTS
+
+	def test_X_takes_center
+		newAI = UnbeatableAI.new("X")
+		assert_equal(4, newAI.take_center([" ", " ", " ", " ", " ", " ", " ", " ", " "]))
+	end
+
 end

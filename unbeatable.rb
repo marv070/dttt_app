@@ -180,4 +180,8 @@ class UnbeatableAI
 
 	end
 
+	def take_center(ttt_board)
+
+	end
+
 end
