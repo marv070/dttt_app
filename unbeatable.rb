@@ -220,4 +220,8 @@ class UnbeatableAI
 
 	end
 
+	def empty_corner
+		
+	end
+
 end

@@ -213,4 +213,11 @@ class TestUnbeatableAI < Minitest::Test
 		assert_equal(8, newAI.opposite_corner(["X", "O", "O", " ", "X", "O", "O", " ", " "]))
 	end
 
+	# EMPTY CORNER TESTS
+
+	def test_O_takes_first_empty_corner
+		newAI = UnbeatableAI.new("O")
+		assert_equal(0, newAI.empty_corner([" ", " ", "X", " ", "O", " ", "X", "O", "X"]))
+	end
+
 end
