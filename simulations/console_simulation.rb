@@ -4,7 +4,7 @@ unbeat_wins = 0
 random_wins = 0
 draws = 0
 
-10000.times do
+1000.times do
 
 	player_1 = RandomAI.new('X')
 	player_2 = UnbeatableAI.new('O')
@@ -28,6 +28,9 @@ draws = 0
 	end
 end
 
-puts unbeat_wins
-puts random_wins
-puts draws
+win_per = (unbeat_wins / 1000.0) * 100
+draw_per = (draws / 1000.0) * 100
+
+puts "Unbeatable won #{unbeat_wins} times, with a #{win_per} win percentage."
+puts "Random won #{random_wins} times."
+puts "There were #{draws} draws.  That's #{draw_per} percent of games played."
