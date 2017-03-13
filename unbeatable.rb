@@ -71,8 +71,8 @@ class UnbeatableAI
 
 		move = 10
 		
-
 		win_combos.each_with_index do |val, pos|
+
 			if val.count(marker) == 2 && val.count(' ') == 1
 				results = val.index(' ')
 				move = winners[pos][results]
