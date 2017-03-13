@@ -181,7 +181,11 @@ class UnbeatableAI
 	end
 
 	def take_center(ttt_board)
-
+		if ttt_board[4] == " "
+			move = 4
+		else
+			move = 10
+		end
 	end
 
 end
