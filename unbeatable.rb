@@ -240,4 +240,24 @@ class UnbeatableAI
 
 	end
 
+	def empty_side(ttt_board)
+
+		sides = [1,3,5,7]
+		empty = []
+
+		sides.each do |pos|
+			if ttt_board[pos] == ' '
+				empty << pos
+			end
+		end
+
+		if empty.length > 0
+			move = empty.shift
+		else
+			move = 10
+		end
+		move
+
+	end
+
 end
