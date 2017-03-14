@@ -1,9 +1,10 @@
 class UnbeatableAI
 
-	attr_accessor :marker
+	attr_accessor :marker, :opponent
 
 	def initialize(marker)
-		@marker = marker	
+		@marker = marker
+		@opponent = get_opponent(@marker)	
 	end
 
 	def get_move(ttt_board)
@@ -80,13 +81,13 @@ class UnbeatableAI
 
 	def block(ttt_board)
 
-		opponent = 'X'
+		# opponent = 'X'
 
-		if marker == 'X'
-			opponent = 'O'
-		else
-			opponent = 'X'
-		end
+		# if marker == 'X'
+		# 	opponent = 'O'
+		# else
+		# 	opponent = 'X'
+		# end
 
 		win_combos = [
 			[ttt_board[0], ttt_board[1], ttt_board[2]],
@@ -180,13 +181,13 @@ class UnbeatableAI
 
 	def block_fork(ttt_board)
 
-		opponent = 'X'
+		# opponent = 'X'
 
-		if marker == 'X'
-			opponent = 'O'
-		else
-			opponent = 'X'
-		end
+		# if marker == 'X'
+		# 	opponent = 'O'
+		# else
+		# 	opponent = 'X'
+		# end
 
 		fork_combinations = [
 							[ttt_board[0],ttt_board[1],ttt_board[2]],
@@ -260,15 +261,13 @@ class UnbeatableAI
 
 	def opposite_corner(ttt_board)
 
-		# Re-using opponent too much, can probably initialize this.
+		# opponent = 'X'
 
-		opponent = 'X'
-
-		if marker == 'X'
-			opponent = 'O'
-		else
-			opponent = 'X'
-		end
+		# if marker == 'X'
+		# 	opponent = 'O'
+		# else
+		# 	opponent = 'X'
+		# end
 
 		# Simple but works, revisit if time allows.
 
@@ -330,4 +329,13 @@ class UnbeatableAI
 
 	end
 
+	def get_opponent(marker)
+		opponent = 'X'
+
+		if marker == 'X'
+			opponent = 'O'
+		else
+			opponent = 'X'
+		end
+	end
 end
