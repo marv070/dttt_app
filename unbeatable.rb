@@ -81,14 +81,6 @@ class UnbeatableAI
 
 	def block(ttt_board)
 
-		# opponent = 'X'
-
-		# if marker == 'X'
-		# 	opponent = 'O'
-		# else
-		# 	opponent = 'X'
-		# end
-
 		win_combos = [
 			[ttt_board[0], ttt_board[1], ttt_board[2]],
 			[ttt_board[3], ttt_board[4], ttt_board[5]],
@@ -181,14 +173,6 @@ class UnbeatableAI
 
 	def block_fork(ttt_board)
 
-		# opponent = 'X'
-
-		# if marker == 'X'
-		# 	opponent = 'O'
-		# else
-		# 	opponent = 'X'
-		# end
-
 		fork_combinations = [
 							[ttt_board[0],ttt_board[1],ttt_board[2]],
 							[ttt_board[3],ttt_board[4],ttt_board[5]],
@@ -261,31 +245,22 @@ class UnbeatableAI
 
 	def opposite_corner(ttt_board)
 
-		# opponent = 'X'
+		corner_combos = [[0,8],[2,6]]
 
-		# if marker == 'X'
-		# 	opponent = 'O'
-		# else
-		# 	opponent = 'X'
-		# end
+		board_corners = [[ttt_board[0],ttt_board[8]],
+						[ttt_board[2],ttt_board[6]]]
+		corner_set = []
+		move = 10
 
-		# Simple but works, revisit if time allows.
-
-		if ttt_board[0] == opponent && ttt_board[8] == " "
-			move = 8
-
-		elsif ttt_board[2] == opponent && ttt_board[6] == " "
-			move = 6
-
-		elsif ttt_board[6] == opponent && ttt_board[2] == " "
-			move = 2
-
-		elsif ttt_board[8] == opponent && ttt_board[0] == " "
-			move = 0
-
-		else
-			move = 10
+		board_corners.each_with_index do |value, pos|
+			if value.count(opponent) == 1 && value.count(" ") == 1
+				results = value.index(' ')
+				move = corner_combos[pos][results]
+			end
+			
 		end
+
+		move
 
 	end
 
