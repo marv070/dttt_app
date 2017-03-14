@@ -1,6 +1,6 @@
-require_relative 'board.rb'
-require_relative 'player_classes.rb'
-require_relative 'unbeatable.rb'
+require_relative '../board.rb'
+require_relative '../player_classes.rb'
+require_relative '../unbeatable.rb'
 
 
 class ConsoleGame
