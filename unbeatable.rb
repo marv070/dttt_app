@@ -50,40 +50,7 @@ class UnbeatableAI
 
 	def check_for_fork(ttt_board)
 
-		fork_combinations = [
-							[ttt_board[0],ttt_board[1],ttt_board[2]],
-							[ttt_board[3],ttt_board[4],ttt_board[5]],
-							[ttt_board[6], ttt_board[7], ttt_board[8]],
-							[ttt_board[0], ttt_board[3], ttt_board[6]],
-							[ttt_board[1],ttt_board[4], ttt_board[7]],
-							[ttt_board[2],ttt_board[5],ttt_board[8]], 
-							[ttt_board[0], ttt_board[4], ttt_board[8]],
-							[ttt_board[2],ttt_board[4],ttt_board[6]]
-							]
-
-		fork_positions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[4,1,7],[2,5,8],[0,4,8],[2,4,6]]
-
-		fork_spot = []
-		i = []
-		
-		fork_combinations.each_with_index do |forking_line, index|
-			if forking_line.count(marker) == 1 && forking_line.count(" ") == 2
-				i.push(index)
-			end
-		end
-
-		i.each do |index|
-			fork_spot << fork_positions[index]
-		end
-		
-		fork_spot = fork_spot.flatten.sort
-
-		intersections = []
-		fork_spot.each do |spot|
-			if ttt_board[spot] == " "
-				intersections.push(spot)
-			end
-		end
+		intersections = take_block_fork(ttt_board, @marker)
 
 		if intersections.detect { |match| intersections.count(match) > 1 } == nil
 
@@ -101,40 +68,7 @@ class UnbeatableAI
 
 	def block_fork(ttt_board)
 
-		fork_combinations = [
-							[ttt_board[0],ttt_board[1],ttt_board[2]],
-							[ttt_board[3],ttt_board[4],ttt_board[5]],
-							[ttt_board[6], ttt_board[7], ttt_board[8]],
-							[ttt_board[0], ttt_board[3], ttt_board[6]],
-							[ttt_board[1],ttt_board[4], ttt_board[7]],
-							[ttt_board[2],ttt_board[5],ttt_board[8]], 
-							[ttt_board[0], ttt_board[4], ttt_board[8]],
-							[ttt_board[2],ttt_board[4],ttt_board[6]]
-							]
-
-		fork_positions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[4,1,7],[2,5,8],[0,4,8],[2,4,6]]
-
-		fork_spot = []
-		i = []
-		
-		fork_combinations.each_with_index do |forking_line, index|
-			if forking_line.count(opponent) == 1 && forking_line.count(" ") == 2
-				i.push(index)
-			end
-		end
-
-		i.each do |index|
-			fork_spot << fork_positions[index]
-		end
-		
-		fork_spot = fork_spot.flatten.sort
-
-		intersections = []
-		fork_spot.each do |spot|
-			if ttt_board[spot] == " "
-				intersections.push(spot)
-			end
-		end
+		intersections = take_block_fork(ttt_board, @opponent)
 
 		# Takes position 3 if the opponent sets up double corner fork on either side
 		# This assumes the center tile takes priority after block fork which I'm pretty sure
@@ -281,6 +215,46 @@ class UnbeatableAI
 		end
 		move
 
+	end
+
+	def take_block_fork(ttt_board, player)
+
+		fork_combinations = [
+							[ttt_board[0],ttt_board[1],ttt_board[2]],
+							[ttt_board[3],ttt_board[4],ttt_board[5]],
+							[ttt_board[6], ttt_board[7], ttt_board[8]],
+							[ttt_board[0], ttt_board[3], ttt_board[6]],
+							[ttt_board[1],ttt_board[4], ttt_board[7]],
+							[ttt_board[2],ttt_board[5],ttt_board[8]], 
+							[ttt_board[0], ttt_board[4], ttt_board[8]],
+							[ttt_board[2],ttt_board[4],ttt_board[6]]
+							]
+
+		fork_positions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[4,1,7],[2,5,8],[0,4,8],[2,4,6]]
+
+		fork_spot = []
+		i = []
+		
+		fork_combinations.each_with_index do |forking_line, index|
+			if forking_line.count(player) == 1 && forking_line.count(" ") == 2
+				i.push(index)
+			end
+		end
+
+		i.each do |index|
+			fork_spot << fork_positions[index]
+		end
+		
+		fork_spot = fork_spot.flatten.sort
+
+		intersections = []
+		fork_spot.each do |spot|
+			if ttt_board[spot] == " "
+				intersections.push(spot)
+			end
+		end
+
+		intersections
 	end
 
 end
