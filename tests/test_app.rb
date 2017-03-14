@@ -12,6 +12,7 @@ class TestApp < Minitest::Test
 	def test_welcome
 		get '/'
 		assert(last_response.ok?)
+		assert(last_response.body.include?('Welcome to Tic Tac Toe'))
 	end
 
 

@@ -12,6 +12,8 @@ class TicTacToe < Sinatra::Base
 
 	get '/' do
 
+		erb :welcome
+
 	end
 
 
