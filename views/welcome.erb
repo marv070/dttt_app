@@ -1,14 +1,14 @@
 <html>
 <h1>Welcome to Tic Tac Toe</h1>
 <h2>Please select the difficulty you wish to play against.</h2>
-<form action='player1' method='post'>
+<form action='difficulty' method='post'>
 	<p>A predictable, easy to beat AI.</p>
-		<input type='submit' name='easy' value='Easy'><br>
+		<input type='radio' name='easy' value='Easy'><br>
 	<p>Slightly tougher, but you can do it!</p>
-		<input type='submit' name='medium' value='Medium'><br>
+		<input type='radio' name='medium' value='Medium'><br>
 	<p>The best you can hope for is a tie.</p>
-		<input type='submit' name='unbeatable' value='Impossible!'>
-		<!-- <input type='submit' value='Submit'> -->
+		<input type='radio' name='unbeatable' value='Impossible!'>
+		<input type='submit' value='Submit'>
 	
 </form>
 
