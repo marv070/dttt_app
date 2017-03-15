@@ -17,7 +17,7 @@ class TicTacToe < Sinatra::Base
 
 	post '/get_opponent' do
 		session[:opponent] = params[:opponent]
-		board = ['X', 'O', ' ', 'X', ' ', 'O', ' ', 'X', 'X']
+		board = Board.new
 		
 		erb :get_opponent, :locals => {opponent: session[:opponent], board: board}
 
