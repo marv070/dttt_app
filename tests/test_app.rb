@@ -18,9 +18,9 @@ class TestApp < Minitest::Test
 	end
 
 	def test_post_get_opponent
-  	post '/get_opponent', opponent: 'Hi'
-  	assert(last_response.ok?)
-  	assert(last_response.body.include?('Hi'))
+	  	post '/get_opponent', opponent: 'Hi'
+	  	assert(last_response.ok?)
+	  	assert(last_response.body.include?('Hi'))
   	
   end
 
