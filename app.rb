@@ -10,14 +10,14 @@ enable :sessions
 class TicTacToe < Sinatra::Base
 
 	get '/' do
-		session[:opponent] = params[:opponent]
-		erb :welcome, :locals => {opponent: session[:opponent]}
+		
+		erb :welcome
 
 	end
 
-	post '/opponent' do
-		
-		erb :opponent, :locals => {opponent: session[:opponent]}
+	post '/get_opponent' do
+		session[:opponent] = params[:opponent]
+		erb :get_opponent, :locals => {opponent: session[:opponent]}
 
 	end
 
