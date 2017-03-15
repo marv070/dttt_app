@@ -4,15 +4,20 @@ require_relative 'board.rb'
 require_relative 'unbeatable.rb'
 require_relative 'player_classes.rb'
 
-#Required console_game to start, but that isn't going to work
-#Need to make new file specifically for use in app, or do the logic in the app.rb
+enable :sessions
 
 
 class TicTacToe < Sinatra::Base
 
 	get '/' do
+		session[:opponent] = params[:opponent]
+		erb :welcome, :locals => {opponent: session[:opponent]}
 
-		erb :welcome
+	end
+
+	post '/opponent' do
+		
+		erb :opponent, :locals => {opponent: session[:opponent]}
 
 	end
 
