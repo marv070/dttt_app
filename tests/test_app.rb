@@ -13,9 +13,16 @@ class TestApp < Minitest::Test
 		get '/'
 		assert(last_response.ok?)
 		assert(last_response.body.include?('Welcome to Tic Tac Toe'))
-		assert(last_response.body.include?("<option value='human'>Human</option>"))
-		assert(last_response.body.include?("<option value='unbeatable'>Impossible!</option>"))
+		assert(last_response.body.include?("<option value='Human'>Human</option>"))
+		assert(last_response.body.include?("<option value='Impossible!'>Impossible!</option>"))
 	end
+
+	def test_post_get_opponent
+  	post '/get_opponent', opponent: 'Hi'
+  	assert(last_response.ok?)
+  	assert(last_response.body.include?('Hi'))
+  	
+  end
 
 
 end
